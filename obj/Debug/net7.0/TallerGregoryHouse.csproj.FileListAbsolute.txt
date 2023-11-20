@@ -1,0 +1,15 @@
+C:\pgms\C#\Proyecto PrograAv\TallergregoryHouse\bin\Debug\net7.0\TallerGregoryHouse.exe
+C:\pgms\C#\Proyecto PrograAv\TallergregoryHouse\bin\Debug\net7.0\TallerGregoryHouse.deps.json
+C:\pgms\C#\Proyecto PrograAv\TallergregoryHouse\bin\Debug\net7.0\TallerGregoryHouse.runtimeconfig.json
+C:\pgms\C#\Proyecto PrograAv\TallergregoryHouse\bin\Debug\net7.0\TallerGregoryHouse.dll
+C:\pgms\C#\Proyecto PrograAv\TallergregoryHouse\bin\Debug\net7.0\TallerGregoryHouse.pdb
+C:\pgms\C#\Proyecto PrograAv\TallergregoryHouse\obj\Debug\net7.0\TallerGregoryHouse.csproj.AssemblyReference.cache
+C:\pgms\C#\Proyecto PrograAv\TallergregoryHouse\obj\Debug\net7.0\TallerGregoryHouse.GeneratedMSBuildEditorConfig.editorconfig
+C:\pgms\C#\Proyecto PrograAv\TallergregoryHouse\obj\Debug\net7.0\TallerGregoryHouse.AssemblyInfoInputs.cache
+C:\pgms\C#\Proyecto PrograAv\TallergregoryHouse\obj\Debug\net7.0\TallerGregoryHouse.AssemblyInfo.cs
+C:\pgms\C#\Proyecto PrograAv\TallergregoryHouse\obj\Debug\net7.0\TallerGregoryHouse.csproj.CoreCompileInputs.cache
+C:\pgms\C#\Proyecto PrograAv\TallergregoryHouse\obj\Debug\net7.0\TallerGregoryHouse.dll
+C:\pgms\C#\Proyecto PrograAv\TallergregoryHouse\obj\Debug\net7.0\refint\TallerGregoryHouse.dll
+C:\pgms\C#\Proyecto PrograAv\TallergregoryHouse\obj\Debug\net7.0\TallerGregoryHouse.pdb
+C:\pgms\C#\Proyecto PrograAv\TallergregoryHouse\obj\Debug\net7.0\TallerGregoryHouse.genruntimeconfig.cache
+C:\pgms\C#\Proyecto PrograAv\TallergregoryHouse\obj\Debug\net7.0\ref\TallerGregoryHouse.dll
