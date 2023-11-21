@@ -9,6 +9,8 @@ namespace TallerMecanico{
         static void Main(string[] args)
         {
 
+            bool tallerAbierto = true;
+
 
             //listas vacias
 
@@ -24,24 +26,92 @@ namespace TallerMecanico{
 
             List<string> almacenVehiculos = new List<string>();
 
-            
-
-
-
             //instancia Taller Mecanico
             TallerMecanico tallerMecanico = new TallerMecanico(listaClientes, listaVehiculosTaller,listaPedidosActivos,listaPedidosInactivos,almacenVehiculos);
 
-            //interfaz en consola
+            while(Interfaz(tallerAbierto, tallerMecanico));
+            
+        }
 
-            //preguntar que quiere hacer el operario
+        static bool Interfaz(bool tallerAbierto, TallerMecanico tallerMecanico)
+        {
+            Console.WriteLine("              ////////// TALLER GREGORY HOUSE //////////   ");
 
-                //crear cliente
-            Cliente cliente1 = CrearCliente("Manwako de ejemplo", 4,"manwako@gmail.com","abskjdb", "rial money", tallerMecanico);
 
-            Console.WriteLine($"El Cliente {cliente1.NombreCliente} tiene la siguiente lista de vehiculos:");
-            cliente1.ImprimeListaDeVehiculos();
-            tallerMecanico.AniadirCliente(cliente1);
+            Console.WriteLine("////////// Presione un numero para realizar operaciones del taller");
+            Console.WriteLine("////////// 1.- Gestion De Clientes: ");
+            Console.WriteLine("////////// 2.- Gestion De Vehiculos: ");
+            Console.WriteLine("////////// 3.- Gestion De Trabajadores: ");
 
+            Console.WriteLine("\n", "\n");
+            Console.WriteLine("////////// 9.- Cerrar Taller: ");
+            int opcion = int.Parse(Console.ReadLine());
+            switch(opcion)
+            {
+                case 1:
+                    while(InterfazGesClientes(tallerMecanico));
+                    return tallerAbierto = true;
+                    
+                case 9:
+                    Console.WriteLine("////////// TALLER CERRADO //////////");
+                    return tallerAbierto = false;
+                default:
+                    return tallerAbierto = true;
+            }
+        }
+
+        static bool InterfazGesClientes(TallerMecanico tallerMecanico)
+        {
+            bool InterfazAbierta = true;
+           
+            Console.WriteLine("////////// Gestion De Clientes: ");
+            Console.WriteLine("////////// Presione un numero para realizar operaciones de clientes");
+            Console.WriteLine("////////// 1.- Crear Cliente: ");
+            Console.WriteLine("////////// 2.- Eliminar Cliente: ");
+            Console.WriteLine("////////// 3.- Ver lista de clientes: ");
+            Console.WriteLine("////////// 4.- Volver a operaciones del taller: ");
+            int opcion = int.Parse(Console.ReadLine());
+            switch(opcion)
+            {
+                case 1:
+                    Console.WriteLine("///// Datos del Cliente");
+                    Console.WriteLine("///// Nombre ");
+                    string nombre = Console.ReadLine();
+                    Console.WriteLine("///// Numero de vehiculos ");
+                    int numeroVehiculos = int.Parse(Console.ReadLine());
+                    Console.WriteLine("///// Correo Electronico");
+                    string correoElectronico = Console.ReadLine();
+                    Console.WriteLine("///// Metodo de Pago");
+                    string metodoPago = Console.ReadLine();
+                    Console.WriteLine("///// Direccion");
+                    string direccion = Console.ReadLine();
+
+                    Console.WriteLine("///// '\n");
+                    tallerMecanico.CrearCliente(nombre,numeroVehiculos,correoElectronico, metodoPago,direccion,tallerMecanico);
+                    Console.WriteLine("///// El cliente ha sido creado exitosamente  y ha sido aniadido a la lista de clientes del taller");
+                    return InterfazAbierta = true;
+                case 2:
+                    Console.WriteLine("///// Datos del Cliente");
+                    Console.WriteLine("///// Nombre ");
+                    string nombreEliminar = Console.ReadLine();
+                    Console.WriteLine("///// Numero de vehiculos ");
+                    
+
+                    Console.WriteLine("///// '\n");
+                    //tallerMecanico.CrearCliente(nombre,numeroVehiculos,correoElectronico, metodoPago,direccion,tallerMecanico);
+                    Console.WriteLine("///// El cliente ha sido creado exitosamente  y ha sido aniadido a la lista de clientes del taller");
+                    return InterfazAbierta = true;
+
+                case 3:
+                    tallerMecanico.ListaDeClientes();
+                    return InterfazAbierta = true;
+                case 4:
+                    return InterfazAbierta = false;
+
+                default:
+                    return InterfazAbierta = true;
+            }
+            return InterfazAbierta = true;
         }
 
 
@@ -50,61 +120,7 @@ namespace TallerMecanico{
 
 
 
-
-        static Cliente CrearCliente(string nombre, int numeroVehiculos, String CorreoElectronico, String Dierccion, String MetodoPago, TallerMecanico taller)
-        {
-            
-
-            //el cliente comienza con una lista vacia de vehiculos
-            List<Vehiculo> listaVehiculosCliente = new List<Vehiculo>();
-            Cliente cliente = new Cliente(nombre, listaVehiculosCliente, CorreoElectronico, Dierccion, MetodoPago);
-
-
-            //crea la cantidad de vehiculos indicada y las asigan a la lista vehiculos del cliente
-            Console.WriteLine($"Ingrese el tipo de vehiculo y los  Datos de los {numeroVehiculos} vehiculos del cliente");
-            for(int i = 1; i <= numeroVehiculos; i++)
-            {
-                Console.WriteLine($"////// Vehiculo {i} ///////");
-                Console.WriteLine("Ingrese un numero para el tipo de vehiculo, 1 => 'Auto', 2 => 'Camion', 3 => 'Moto', 4 => 'Utilitario' ");
-                
-                int tipoVehiculo = int.Parse(Console.ReadLine());
-                Console.WriteLine("Marca: ");
-                string marca = Console.ReadLine();
-                Console.WriteLine("Modelo: ");
-                string modelo = Console.ReadLine();
-                Console.WriteLine("Anio: ");
-                int anio = int.Parse(Console.ReadLine());
-                Console.WriteLine("Matricula: ");
-                string matricula = Console.ReadLine();
-
-                //se crean los vehiculos segun tipo, se asignan caracteristicas especiales de cada tipo de vehiculo y se aniaden a la lista de vehiculos del cliente
-                switch (tipoVehiculo)
-                {
-                    case 1:
-                        Console.WriteLine("Ingresa Caracteristicas adicionales al tipo de vehiculo: 'Numero de puertas', 'carroceria', 'color'");
-                        int numeroPuertas = int.Parse(Console.ReadLine());
-                        string carroceria = Console.ReadLine();
-                        string color = Console.ReadLine();
-                        AutoPasajeros vehiculo = new AutoPasajeros(marca, modelo,anio,matricula,cliente, numeroPuertas, carroceria,color);
-                        listaVehiculosCliente.Add(vehiculo);
-                        break;
-                    case 2:
-                        Console.WriteLine("Ingresa Caracteristicas adicionales al tipo de vehiculo: 'tipo de camion', 'capacidad de carga'");
-    
-                        string tipoCamion = Console.ReadLine();
-                        int capacidadCarga = int.Parse(Console.ReadLine());
-                        Camiones vehiculo2 = new Camiones(marca, modelo,anio,matricula,cliente,tipoCamion, capacidadCarga);
-                        listaVehiculosCliente.Add(vehiculo2);
-                        break;
-                    //falta los demas vehiculos
-                }
-                //end for
-            }
-            //se aniade el cliente al taller
-            taller.AniadirCliente(cliente);
-            return cliente;
-
-        }   
+        
         
 
     }
