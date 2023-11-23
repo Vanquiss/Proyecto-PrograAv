@@ -1,50 +1,38 @@
+using System.Threading;
+
 
 namespace TallerMecanico
 {
-    class Pedido
+    class Servicios
     {
         //atributos
-        private string Codigo;
         private bool Activo;
 
+        private string Fecha;
         private string boleta;
         private string factura;
 
-        string rutaArchivo = "Boleta.txt";
-        string rutaArchivo2 = "Factura.txt";
-
-         
-
 
         //constructor
-        public Pedido(string codigo, bool activo)
+        public Servicios(string fecha)
         {
-            this.Activo = activo;
-            this.Codigo = codigo;
-        
+            this.Fecha = fecha;
         }
 
 
         //metodos
-        public string CodigoPedido
-        {
-            get {return Codigo;}
-            set {Codigo = value;}
-        }
+       
 
-        public bool PedidoActivo
-        {
-            get {return Activo;}
-            set {Activo = value;}
-        }
 
-        public void PerstarServicio(Servicios servicio)
-        {
-            
-        }
+       
 
+
+
+
+        //
         public void GenerarBoleta()
         {
+            string rutaArchivo = "archivo.txt";
             try
             {    using (StreamWriter sw = new StreamWriter(rutaArchivo))
                 {
@@ -82,10 +70,8 @@ namespace TallerMecanico
             }
         }
 
-        public void GenerarFactura()
-        {
-            ;
-        }
+
+
 
     }
 }

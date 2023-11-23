@@ -60,7 +60,7 @@ namespace TallerMecanico{
 
         public string GetDuenio
         {
-            get{return DuenioID.NombreCliente;}
+            get{return DuenioID.NombrePersona;}
         }
 
 
