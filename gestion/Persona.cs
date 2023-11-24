@@ -2,58 +2,43 @@
 
 namespace TallerMecanico
 {
-    abstract class Persona{ 
-    //Atributos
+    public interface IPersona{ 
+        //Atributos
 
-        private String RUT; //rut
-        private string Nombre {get; set;}
+        public string RUT { get; set; } //rut
+        public string Nombre {get; set;}
 
-        private int Edad;
+        public int Edad {get; set;}
 
-        private string CorreoElectronico{get; set;}
-        private string Direccion {get; set;}
+        public string CorreoElectronico{get; set;}
+        public string Direccion {get; set;}
 
-        private string NumeroTelefonico;
-
-        //constructor
-         public Persona(string rut, string nombre, int edad, string correoElectronico, string direccion, string numeroTelefonico)
-        {
-            this.RUT = rut;
-            this.Nombre = nombre;
-            this.Edad = edad;
-            this.CorreoElectronico = correoElectronico;
-            this.Direccion = direccion;
-            this.NumeroTelefonico = numeroTelefonico;
-        }
-
+        public string NumeroTelefonico {get; set;}
 
         //metodos
 
-        public String GetRut
-        {
-            get{ return RUT;}
-            set{RUT = value;}
-        }
+        String GetRut { get; set; }
+       
 
-        public String NombrePersona
-        {
-            get{ return Nombre;}
-            set{Nombre = value;}
-        }
+        String NombrePersona { get; set; }
+       
 
-         public int EdadPersona
-        {
-            get{ return Edad;}
-            set{Edad = value;}
-        }
+        String GetDireccion { get; set; }
+       
 
-        public string Telefono
-        {
-            get{ return NumeroTelefonico;}
-            set{NumeroTelefonico = value;}
-        }
+        String GetCorreo { get; set; }
+      
+        int EdadPersona { get; set; }
+      
 
-        public abstract void Informacion();
+        string Telefono { get; set; }
+       
+       
+        public interface IMostrarinformacion
+        {
+            void Informacion();
+        }
+       
 
         
     }

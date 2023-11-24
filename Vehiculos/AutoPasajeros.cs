@@ -16,9 +16,9 @@ namespace TallerMecanico
         private string Color;
 
         //constructor
-        public AutoPasajeros(string marca, string modelo, int anio,string matricula,Cliente duenioID,
+        public AutoPasajeros(string marca, string modelo, int anio,string matricula,Cliente duenioID, List<string> listaServiciosRealizados,
                              int numeroPuertas, string carroceria, string color)
-                             : base(marca, modelo, anio, matricula, duenioID)
+                             : base(marca, modelo, anio, matricula, duenioID,listaServiciosRealizados)
         {
             this.NumeroPuertas = numeroPuertas;
             this.Carroceria = carroceria;

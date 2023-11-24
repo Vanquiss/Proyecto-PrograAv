@@ -1,0 +1,22 @@
+------------------------------------------------------------
+                         BOLETA                            
+------------------------------------------------------------
+ Taller Mecánico: Taller Gregory House
+ Dirección: Direccion123
+ Teléfono: 9345674257
+ Correo Electrónico: TallerGregoryHouse1@gmail.com
+------------------------------------------------------------
+ Fecha: 24-11-2023 3:21:51
+ Boleta #: 7085d9e2
+------------------------------------------------------------
+ Cliente: Manwako
+ Dirección del Cliente: Manwako@gmail.com
+ Teléfono del Cliente: ManwakoStreet
+------------------------------------------------------------
+ Descripción                      |  Total   
+------------------------------------------------------------
+Servicio:  CAMBIO DE NEUMATICO Costo:  100
+Total del vehiculo Ferrari   488 GTB  :  $100
+------------------------------------------------------------
+ Total a Pagar: | $100,00    
+------------------------------------------------------------

@@ -17,6 +17,8 @@ namespace TallerMecanico{
 
         public List<Vehiculo> ListaVehiculos;
 
+        private List<String> ListaServiciosRealizados;
+
 
 
 
@@ -25,9 +27,12 @@ namespace TallerMecanico{
                               String modelo,
                               int Anio,
                               String matricula,
-                              Cliente duenioID)
+                              Cliente duenioID,
+                              List<string> listaServiciosRealizados
+                              )
         {
             this.Marca = marca;
+            this.ListaServiciosRealizados = listaServiciosRealizados;
             this.Modelo = modelo;
             this.Anio = Anio;
             this.Matricula =matricula;
@@ -60,8 +65,20 @@ namespace TallerMecanico{
 
         public string GetDuenio
         {
-            get{return DuenioID.NombrePersona;}
+            get{return DuenioID.Nombre;}
         }
+
+        public List<String> ListaDeServiciosRealizados
+        {
+            get{return ListaServiciosRealizados;}
+        }
+
+        public void AniadirServicioRealizado(String servicio)
+        {
+            ListaServiciosRealizados.Add(servicio);
+        }
+
+
 
 
 

@@ -14,13 +14,12 @@ namespace TallerMecanico{
             List<Vehiculo> listaVehiculosTaller = new List<Vehiculo>();
             List<Cliente> listaClientes = new List<Cliente>();
             List<Trabajadores> listaTrabajadores = new List<Trabajadores>();
-            List<Pedido> listaPedidos = new List<Pedido>();
-            List<Pedido> listaPedidosActivos = new List<Pedido>();
-            List<Pedido> listaPedidosInactivos = new List<Pedido>();
+
+      
             List<string> almacenVehiculos = new List<string>();
 
             //instancia Taller Mecanico
-            TallerMecanico tallerMecanico = new TallerMecanico(listaClientes,listaTrabajadores, listaVehiculosTaller,listaPedidosActivos,listaPedidosInactivos,almacenVehiculos);
+            TallerMecanico tallerMecanico = new TallerMecanico(listaClientes,listaTrabajadores, listaVehiculosTaller,"Direccion123","TallerGregoryHouse1@gmail.com","9345674257",almacenVehiculos);
 
             //Interfaz
             while(Interfaz(tallerAbierto, tallerMecanico));
@@ -115,13 +114,14 @@ namespace TallerMecanico{
                     return InterfazAbierta = true;
                 case 2:
                     
+                    
                     Console.WriteLine("///// Datos del Cliente a ELIMINAR");
                     Console.WriteLine("///// RUT");
                     string RUT = Console.ReadLine();
                     
                     Console.WriteLine("///// '\n");
                     tallerMecanico.EliminarCliente(RUT);
-                    Console.WriteLine("///// El cliente ha sido eliminado exitosamente ");
+
                     return InterfazAbierta = true;
                 case 3:
                     tallerMecanico.ListaDeClientes();
@@ -149,43 +149,68 @@ namespace TallerMecanico{
             Console.WriteLine("////////// Gestion De Servicios: ");
             Console.WriteLine("////////// Presione un numero para realizar operaciones de servicios");
             Console.WriteLine("////////// 1.- Prestar Servicio: ");
+            Console.WriteLine("////////// 2.- Pago de Servicio/s: ");
             Console.WriteLine("////////// 9.- Volver a operaciones de taller ");
             int opcion = int.Parse(Console.ReadLine());
-            switch(opcion)
-            {
-                case 1:
-                    Console.WriteLine("////////// Servicios Disponibles: ");
-                    Console.WriteLine("////////// 1.- Cambio de Aceite: ");
-                    Console.WriteLine("////////// 2.- Reparar Frenos: ");
-                    int opcionServicio = int.Parse(Console.ReadLine());
-                    switch(opcionServicio)
-                    {
-                        case 1:
-                            Console.Write("Ingrese la matricula del vehiculo:  ");
-                            string matricula = Console.ReadLine();;
-                            Vehiculo vehiculo = tallerMecanico.BuscarVehiculo(matricula);
-                            tallerMecanico.CambioAceite(vehiculo);
-                            return InterfazAbierta = true;
-                        case 2:
-                            Console.Write("Ingrese la matricula del vehiculo:  ");
-                            string matricula2 = Console.ReadLine();;
-                            Vehiculo vehiculo2 = tallerMecanico.BuscarVehiculo(matricula2);
-                            tallerMecanico.RepararFrenos(vehiculo2);
-                            return InterfazAbierta = true;
-                        case 3:
-                            Console.Write("Ingrese la matricula del vehiculo:  ");
-                            string matricula3 = Console.ReadLine();;
-                            Vehiculo vehiculo3 = tallerMecanico.BuscarVehiculo(matricula3);
-                            tallerMecanico.CambioAceite(vehiculo3);
-                            return InterfazAbierta = true;
-                    }
+            try{
+                switch(opcion)
+                {
+                    case 1:
+
+                        Console.WriteLine("////////// Ingrese el rut del cliente: ");
+                        string rut = Console.ReadLine();
+                        Cliente cliente = tallerMecanico.BuscarCliente(rut);
+
+                        Console.WriteLine("////////// Servicios Disponibles: ");
+                        Console.WriteLine("////////// 1.- Cambio de Aceite: ");
+                        Console.WriteLine("////////// 2.- Reparar Frenos: ");
+                        Console.WriteLine("////////// 3.- Cambio Componentes: ");
+
+
+                        int opcionServicio = int.Parse(Console.ReadLine());
+                        switch(opcionServicio)
+                        {
+                            case 1:
+                                Console.Write("Ingrese la matricula del vehiculo:  ");
+                                string matricula = Console.ReadLine();
+                                Vehiculo vehiculo = tallerMecanico.BuscarVehiculo(matricula, cliente);
+                                tallerMecanico.CambioAceite(vehiculo);
+                                return InterfazAbierta = true;
+                            case 2:
+                                Console.Write("Ingrese la matricula del vehiculo:  ");
+                                string matricula2 = Console.ReadLine();
+                                Vehiculo vehiculo2 = tallerMecanico.BuscarVehiculo(matricula2, cliente);
+                                tallerMecanico.RepararFrenos(vehiculo2);
+                                return InterfazAbierta = true;
+                            case 3:
+                                Console.Write("Ingrese la matricula del vehiculo:  ");
+                                string matricula3 = Console.ReadLine();
+                                Vehiculo vehiculo3 = tallerMecanico.BuscarVehiculo(matricula3, cliente);
+                                tallerMecanico.CambioComponente(vehiculo3);
+                                return InterfazAbierta = true;
+                        }
+                        return InterfazAbierta = true;
                     
-                    return InterfazAbierta = true;
-                case 9:
-                    return InterfazAbierta = false;
-                default:
-                    return InterfazAbierta = true;
+                    case 2:
+                        Console.WriteLine("////////// Ingrese el rut del cliente: ");
+                        string rut2 = Console.ReadLine();
+                        Cliente cliente2 = tallerMecanico.BuscarCliente(rut2);
+
+                        tallerMecanico.GenerarBoleta(cliente2);
+                        
+                        return InterfazAbierta = true;
+                    case 9:
+                        return InterfazAbierta = false;
+                    default:
+                        return InterfazAbierta = true;
+                }
+            }catch(FormatException ex)
+            {
+                Console.WriteLine("Error de formato, ingrese un numero: " + ex.Message);
+                return InterfazAbierta = true;
             }
+
+
         }
     }
 }

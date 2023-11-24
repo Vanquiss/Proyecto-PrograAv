@@ -3,12 +3,21 @@ using System.Collections.Generic;
 namespace TallerMecanico{
 
 
-    class Trabajadores : Persona
+    class Trabajadores : IPersona
     {
         //Atributos
+        public string RUT { get; set; } //rut
+        public string Nombre {get; set;}
+
+        public int Edad {get; set;}
+
+        public string CorreoElectronico{get; set;}
+        public string Direccion {get; set;}
+
+        public string NumeroTelefonico {get; set;}
 
         private List<Cliente> ListaClientes;
-        private List<Servicios> ListaServicios;
+  
         private List<Vehiculo> ListaVehiculos {get; set;}
 
 
@@ -17,32 +26,74 @@ namespace TallerMecanico{
                               string correoElectronico,
                               string direccion,
                               string numeroTelefonico,
-                              List<Cliente> listaClientes,
-                              List<Servicios> listaServicios
+                              List<Cliente> listaClientes
+                              
                               )
-                              :base(rut, nombre,edad, correoElectronico, direccion, numeroTelefonico)
+                              
         {
             
-            this.ListaServicios = listaServicios;
             this.ListaClientes = listaClientes;
            
         }
 
 
+
+
+     
+
+
         //metodos
+
+
+        public string GetRut
+        {
+            get {return RUT;}
+            set {RUT = value;}
+        }
+
+        public String NombrePersona
+        {
+            get{ return Nombre;}
+            set{Nombre = value;}
+        }
+
+        public String GetDireccion
+        {
+            get{ return Direccion;}
+            set{Direccion = value;}
+        }
+
+         public String GetCorreo
+        {
+            get{ return CorreoElectronico;}
+            set{CorreoElectronico = value;}
+        }
+        public int EdadPersona
+        {
+            get{ return Edad;}
+            set{Edad = value;}
+        }
+
+        public string Telefono
+        {
+            get{ return NumeroTelefonico;}
+            set{NumeroTelefonico = value;}
+        }
+
+   
         public void ImprimeClientesAsignados()
         {
             Console.WriteLine("///// Clientes Asignados:  ");
             foreach(Cliente i in ListaClientes)
             {
-                Console.WriteLine(i.NombrePersona);
+                Console.WriteLine(i.Nombre);
             }
             Console.WriteLine("'\n'");
         }
 
-         public override void Informacion(){
+         public void Informacion(){
             Console.WriteLine(
-                $"///// Nombre: {this.NombrePersona} '\n'///// Rut: {this.GetRut}, '\n'///// Numero Telefonico: {this.Telefono} "
+                $"///// Nombre: {this.Nombre} '\n'///// Rut: {this.RUT}, '\n'///// Numero Telefonico: {this.NumeroTelefonico} "
             );
             Console.WriteLine(this.ImprimeClientesAsignados);
         }

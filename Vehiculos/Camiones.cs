@@ -10,9 +10,8 @@ namespace TallerMecanico
         private string TipoCamion;
         private int CapacidadCarga;
         //constructor
-        public Camiones(string marca, string modelo, int anio,string matricula,Cliente duenioID,
-                                string tipoCamion, int capacidadCarga)
-                                : base(marca, modelo, anio, matricula, duenioID)
+        public Camiones(string marca, string modelo, int anio,string matricula,Cliente duenioID,List<string> listaServiciosRealizados,                                string tipoCamion, int capacidadCarga)
+                                : base(marca, modelo, anio, matricula, duenioID,listaServiciosRealizados)
         {
             this.TipoCamion = tipoCamion;
             this.CapacidadCarga = capacidadCarga;
